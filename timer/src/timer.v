@@ -37,12 +37,10 @@ module timer(
         // things that we want to cover _loaded_ is a label
         _loaded_: cover(busy && !reset);  
         // cover timer finishing
-        //Cover when we want it to stop
         if(f_past_valid)
             if(!$past(reset))
                 _finish_: cover($past(busy) && !busy);
         // busy
-        //check that if counter is 1 busy is 1 too
         if(counter)
             assert(busy);
 
